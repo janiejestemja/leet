@@ -1,0 +1,4 @@
+/target
+/cp_src/main
+/Cargo.lock
+__pycache__/
