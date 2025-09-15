@@ -1,3 +1,13 @@
+## Script
+`argument`
+- "cp"
+- "py"
+- "rs"
+- "--all"
+
+```bash
+./script/run.sh <argument>
+```
 ### Python
 ```bash
 python py_src/main.py
