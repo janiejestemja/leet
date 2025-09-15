@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 # Python
 echo ">> Run Python"
 python py_src/main.py
