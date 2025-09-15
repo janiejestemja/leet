@@ -8,7 +8,7 @@ class Node():
         self.next = next
 
     def __repr__(self):
-        return f"Node({self.ele}, {self.next.ele})"
+        return f"Node({self.ele}, {self.next})"
 
     # given an arr return nodes
     @staticmethod
@@ -29,3 +29,32 @@ class Node():
             node = node.next
 
         return arr
+
+    @staticmethod
+    def add_nodes(lnode, rnode):
+        # setup solution
+        sol = 0
+
+        # digit multiplication in decimal system
+        expon = 1
+        # traverse left side
+        node = lnode
+        while node:
+            sol += node.ele * expon
+            expon *= 10
+            node = node.next
+
+        # traverse right side
+        expon = 1
+        node = rnode
+        while node:
+            sol += node.ele * expon
+            expon *= 10
+            node = node.next
+
+        # got solution
+        # trafo into nodes (node is already none)
+        for ele in str(sol):
+            node = Node(int(ele), node)
+
+        return (sol, node)
