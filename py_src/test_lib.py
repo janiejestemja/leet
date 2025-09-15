@@ -21,6 +21,13 @@ def test_addition():
     output = Node.from_node(as_node)
 
     assert(out == output)
+    lnode = Node(0, None)
+    rnode = Node(0, None)
+    out =  [0]
+
+    as_node = lnode + rnode
+    output = Node.from_node(as_node)
+    assert(out == output)
 
     # second testcase
     l1 = [9,9,9,9,9,9,9]
