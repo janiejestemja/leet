@@ -12,32 +12,26 @@ def test_addition():
     l1 = [2, 4, 3]
     l2 = [5, 6, 4]
     out = [7, 0, 8]
-    # setup solution for comparison
-    solution = 807
 
     lnode = Node.from_arr(l1)
     rnode = Node.from_arr(l2)
     out_node = Node.from_arr(out)
 
-    sol, as_node = Node.add_nodes(lnode, rnode)
+    as_node = lnode + rnode
     output = Node.from_node(as_node)
 
     assert(out == output)
-    assert(sol == solution)
 
     # second testcase
     l1 = [9,9,9,9,9,9,9]
     l2 = [9,9,9,9]
     out =  [8,9,9,9,0,0,0,1]
-    solution = 10009998
     lnode = Node.from_arr(l1)
     rnode = Node.from_arr(l2)
-    out_node = Node.from_arr(out)
 
-    sol, as_node = Node.add_nodes(lnode, rnode)
+    as_node = lnode + rnode
     output = Node.from_node(as_node)
     assert(out == output)
-    assert(sol == solution)
 
 
 if __name__ == "__main__":
