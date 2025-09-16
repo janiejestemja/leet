@@ -39,7 +39,3 @@ def test_addition():
     as_node = lnode + rnode
     output = Node.from_node(as_node)
     assert(out == output)
-
-
-if __name__ == "__main__":
-    main()
