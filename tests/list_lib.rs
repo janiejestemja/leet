@@ -1,10 +1,9 @@
-use leet::add;
 use leet::list_lib::Node;
 
-fn main() {
-    println!("works?");
-    println!("{}", add(11, 13));
-
+#[test]
+fn test_list_lib() {
+    // Non recursive transformations
+    // Trafo from vector to linked list
     let arr: Vec<u8> = vec![1, 3, 5, 7];
     let from_vec = Node::from_arr(arr.clone()).unwrap();
     
@@ -16,7 +15,4 @@ fn main() {
     rev_from_vec.reverse();
 
     assert_eq!(arr, rev_from_vec);
-
-    println!("{:?}", back_from_vec);
-    println!("{:?}", rev_from_vec);
 }
