@@ -8,30 +8,32 @@ class Node():
         return f"Node({self.ele}, {self.next})"
 
     def __add__(self, other):
-        # setup solution
-        sol = 0
+        lnode = self
+        rnode = other
 
-        # digit multiplication in decimal system
-        expon = 1
-        # traverse left side
-        node = self
-        while node:
-            sol += node.ele * expon
-            expon *= 10
-            node = node.next
+        carry = 0
+        node = None
+        tail = None
+        while lnode or rnode or carry > 0:
+            temp = carry
 
-        # traverse right side
-        expon = 1
-        node = other
-        while node:
-            sol += node.ele * expon
-            expon *= 10
-            node = node.next
+            if lnode:
+                temp += lnode.ele
+                lnode = lnode.next
 
-        # got solution
-        # trafo into nodes (node is already none)
-        for ele in str(sol):
-            node = Node(int(ele), node)
+            if rnode:
+                temp += rnode.ele
+                rnode = rnode.next
+
+            digit = temp % 10
+            carry = temp // 10
+
+            if node:
+                tail.next = Node(digit, None)
+                tail = tail.next
+            else:
+                node = Node(digit, None)
+                tail = node
 
         return node
 
