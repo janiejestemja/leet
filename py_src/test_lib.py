@@ -1,4 +1,4 @@
-from lib import Node
+from list_lib import Node
 
 
 def test_Node():
