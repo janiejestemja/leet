@@ -4,7 +4,7 @@ use leet::list_lib::Node;
 fn test_list_lib() {
     // Non recursive transformations
     // Trafo from vector to linked list
-    let arr: Vec<u8> = vec![1, 3, 5, 7];
+    let arr: Vec<char> = vec![1 as char, 3 as char, 5 as char, 7 as char];
     let from_vec = Node::from_arr(arr.clone()).unwrap();
     
     // Trafo from node to vector
