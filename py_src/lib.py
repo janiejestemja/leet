@@ -11,9 +11,13 @@ def qsort(arr):
     r = [x for x in arr if x > arr[pivot]]
     return qsort(l) + c + qsort(r)
 
+
 def search(arr, tar):
     lower = 0
-    upper = int(len(arr))
+    upper = int(len(arr)) - 1
+
+    if tar > arr[-1]:
+        lower = upper
 
     while lower <= upper:
         center = (lower + upper) // 2
