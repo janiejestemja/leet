@@ -7,6 +7,7 @@ def test_Node():
     after_trafo = Node.from_node(Node.from_arr(arr))
     assert(arr == after_trafo)
 
+
 def test_addition():
     # 342 + 465 = 807
     l1 = [2, 4, 3]
@@ -30,9 +31,9 @@ def test_addition():
     assert(out == output)
 
     # second testcase
-    l1 = [9,9,9,9,9,9,9]
-    l2 = [9,9,9,9]
-    out =  [8,9,9,9,0,0,0,1]
+    l1 = [0, 1, 0, 9, 9, 9, 9, 9, 9, 9]
+    l2 = [0, 1, 0, 9, 9, 9, 9]
+    out = [0, 2, 0, 8, 9, 9, 9, 0, 0, 0, 1]
     lnode = Node.from_arr(l1)
     rnode = Node.from_arr(l2)
 
