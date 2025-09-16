@@ -13,14 +13,14 @@ def qsort(arr):
 
 def search(arr, tar):
     lower = 0
-    upper = int(len(arr) / 2)
+    upper = int(len(arr))
 
     while lower <= upper:
         center = (lower + upper) // 2
 
-        if tar == arr[center]:
+        if arr[center] == tar:
             return center
-        elif tar > arr[center]:
+        elif arr[center] < tar:
             lower += 1
         else:
             upper -= 1
