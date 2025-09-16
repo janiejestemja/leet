@@ -1,7 +1,7 @@
 from list_lib import Node
 
 
-def test_Node():
+def test_trafo():
     # Array
     arr = [x for x in range(1, 20)]
     after_trafo = Node.from_node(Node.from_arr(arr))
