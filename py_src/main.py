@@ -1,31 +1,24 @@
-from lib import add, qsort, search
-from list_lib import Node
+from lib import add, qsort, search, msort
 
 
 def main():
     print("works?")
     print(add(11, 13))
-    l1 = [1, 0, 9, 9, 9, 9, 9, 9, 9]
-    l2 = [1, 0, 9, 9, 9, 9]
-    out = [2, 0, 8, 9, 9, 9, 0, 0, 0, 1]
-    lnode = Node.from_arr(l1)
-    rnode = Node.from_arr(l2)
 
-    as_node = lnode + rnode
-    output = Node.from_node(as_node)
-    assert(out == output)
+    arr = [(-1)**(i % 3) * (x % 11) for i, x in enumerate(range(-22, 23))]
+    qsort_arr = qsort(arr)
+    msort_arr = msort(arr)
+    assert(qsort_arr == msort_arr)
 
+    mindex = search(qsort_arr, 0)
+    qindex = search(msort_arr, 0)
+    assert(qindex == mindex)
 
-def legacy_main():
-
-    arr = [x % 11 for x in range(1, 50)]
-    sorted_arr = qsort(arr)
-
-    index = search(sorted_arr, 0)
-    print(sorted_arr)
-    print(f"{index} target index")
-    print(f"{len(sorted_arr)} length of sorted arr")
-    print(f"{sorted_arr[index]} val in arr at index")
+    print(arr)
+    print(qsort_arr)
+    print(msort_arr)
+    print(mindex)
+    print(qindex)
 
 
 if __name__ == "__main__":
