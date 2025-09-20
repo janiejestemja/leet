@@ -7,6 +7,28 @@ def main():
     print("works?")
     print(add(11, 13))
 
+    print(longest_unique("abcabcbb"))
+    print(longest_unique("aab"))
+    print(longest_unique("pwwkew"))
+
+
+def longest_unique(seq):
+    cmap = {}
+    istart = 0
+    longest = ""
+
+    for i, ele in enumerate(seq):
+        if ele in cmap and istart <= cmap[ele]:
+            istart = cmap[ele] + 1
+
+        cmap[ele] = i
+        current = seq[istart: i + 1]
+
+        if len(current) > len(longest):
+            longest = current
+
+    return longest
+
 
 def circle_main():
     arr = [(-1)**(i % 3) * (x % 11) for i, x in enumerate(range(-22, 23))]
