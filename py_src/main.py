@@ -6,47 +6,10 @@ def main():
     arr = [(-1)**(i % 3) * (x % 11) for i, x in enumerate(range(-22, 23))]
     print(arr)
     node = Node.from_arr(arr)
-    print(node)
-    print(sort(node))
-
-
-def split(node):
-    if not node or not node.next:
-        return node, None
-
-    slow, fast, prev = node, node, None
-    while fast and fast.next:
-        prev = slow
-        slow = slow.next
-        fast = fast.next.next
-    # split
-    prev.next = None
-    return node, slow
-
-
-def merge(left, right):
-    front = Node(None, None)
-    tail = front
-
-    while left and right:
-        if left.ele <= right.ele:
-            tail.next = left
-            left = left.next
-        else:
-            tail.next = right
-            right = right.next
-        tail = tail.next
-    tail.next = left or right
-    return front.next
-
-
-def sort(node):
-    if not node or not node.next:
-        return node
-    left, right = split(node)
-    left = sort(left)
-    right = sort(right)
-    return merge(left, right)
+    # print(node)
+    sorted = Node.sort_self(node)
+    print(sorted)
+    # print(sort(node))
 
 
 # Searching a very sorted 2D matrix

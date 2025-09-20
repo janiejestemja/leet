@@ -57,3 +57,45 @@ class Node():
             node = node.next
 
         return arr
+
+    @classmethod
+    def sort_self(cls, node):
+        if not node or not node.next:
+            return node
+
+        left, right = cls.csplit(node)
+        left = cls.sort_self(left)
+        right = cls.sort_self(right)
+
+        return cls.merge(left, right)
+
+    @staticmethod
+    def merge(left, right):
+        start = Node(None, None)
+        tail = start
+
+        while left and right:
+            if left.ele <= right.ele:
+                tail.next = left
+                left = left.next
+            else:
+                tail.next = right
+                right = right.next
+
+            tail = tail.next
+        tail.next = left or right
+        return start.next
+
+    @staticmethod
+    def csplit(node):
+        if not node or not node.next:
+            return node, None
+        slow, fast, prev = node, node, None
+
+        while fast and fast.next:
+            prev = slow
+            slow = slow.next
+            fast = fast.next.next
+        prev.next = None
+
+        return node, slow
