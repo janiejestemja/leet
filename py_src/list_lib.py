@@ -101,3 +101,16 @@ class Node():
         prev.next = None
 
         return node, slow
+
+    @staticmethod
+    def check_circle(node):
+        slow, fast = node, node
+
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+
+            if slow == fast:
+                return True
+
+        return False
