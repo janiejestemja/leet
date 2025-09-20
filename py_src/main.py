@@ -6,10 +6,48 @@ def main():
     arr = [(-1)**(i % 3) * (x % 11) for i, x in enumerate(range(-22, 23))]
     print(arr)
     node = Node.from_arr(arr)
-    # print(node)
-    sorted = Node.sort_self(node)
-    print(sorted)
-    # print(sort(node))
+
+    circle = make_circle(node, 5)
+
+    print(check_circle(node))
+    print(check_circle(circle))
+
+def check_circle(node):
+
+    prev, slow, fast = None, node, node
+
+    while fast and fast.next:
+        prev = slow
+        slow = slow.next
+        fast = fast.next.next
+
+        if slow == fast:
+            return True
+
+    return False
+
+
+def make_circle(node, index):
+    start = Node(None, None)
+    tail = start
+
+    counter = 0
+    circlepoint = None
+    while node:
+        if counter == index:
+            tail.next = node
+            circlepoint = tail
+            node = node.next
+        else:
+            tail.next = node
+            node = node.next
+        counter += 1
+    tail.next = circlepoint
+
+    return start.next
+
+
+
 
 
 # Searching a very sorted 2D matrix

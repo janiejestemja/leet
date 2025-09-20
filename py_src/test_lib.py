@@ -2,7 +2,7 @@ from list_lib import Node
 from lib import msort, qsort, search
 
 
-def test_sort():
+def test_sort_arrays():
     arr = [(-1)**(i % 3) * (x % 11) for i, x in enumerate(range(-22, 23))]
     qsort_arr = qsort(arr)
     msort_arr = msort(arr)
@@ -11,6 +11,20 @@ def test_sort():
     mindex = search(qsort_arr, 0)
     qindex = search(msort_arr, 0)
     assert(qindex == mindex)
+
+
+def test_sort_linkedlist():
+    arr = [(-1)**(i % 3) * (x % 11) for i, x in enumerate(range(-22, 23))]
+    unsorted = Node.from_arr(arr)
+
+    msort_arr = msort(arr)
+    presorted = Node.from_arr(msort_arr)
+
+    from_sorted_nodes = Node.from_node(Node.sort_self(unsorted))
+
+    for i, j in zip(msort_arr, from_sorted_nodes):
+        assert(i == j)
+
 
 def test_trafo():
     # Array
