@@ -1,4 +1,5 @@
 from list_lib import Node
+from tree_lib import Tree
 from lib import msort, qsort, search
 
 
@@ -24,6 +25,12 @@ def test_sort_linkedlist():
 
     for i, j in zip(msort_arr, from_sorted_nodes):
         assert(i == j)
+
+
+def test_tree():
+    arr = [(-1)**(i % 3) * (x % 11) for i, x in enumerate(range(-22, 23))]
+    from_tree = Tree.from_tree(Tree.from_arr(arr))
+    assert(arr == from_tree)
 
 
 def test_trafo():
