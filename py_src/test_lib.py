@@ -1,6 +1,16 @@
 from list_lib import Node
 from tree_lib import Tree
 from lib import msort, qsort, search
+from lib import get_medians, medSlideArr
+
+
+def test_sorted_sliding_window():
+    assert(medSlideArr([1,3,-1,-3,5,3,6,7], 3) == get_medians([1,3,-1,-3,5,3,6,7], 3))
+    assert(medSlideArr([1,4,2,3], 4) == get_medians([1,4,2,3], 4))
+
+    arr = [(-1)**(i % 3) * (x % 11) for i, x in enumerate(range(-22, 23))]
+    k = 3
+    assert(medSlideArr(arr, k) == get_medians(arr, k))
 
 
 def test_sort_arrays():

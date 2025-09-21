@@ -7,11 +7,8 @@ def main():
     print("works?")
     print(add(11, 13))
 
-    print(medSlideArr([1,3,-1,-3,5,3,6,7], 3))
-    print(get_medians([1,3,-1,-3,5,3,6,7], 3))
-    print(medSlideArr([1,4,2,3], 4))
-    print(get_medians([1,4,2,3], 4))
-
+    assert(medSlideArr([1,3,-1,-3,5,3,6,7], 3) == get_medians([1,3,-1,-3,5,3,6,7], 3))
+    assert(medSlideArr([1,4,2,3], 4) == get_medians([1,4,2,3], 4))
 
     arr = [1,3,-1,-3,5,3,6,7]
     arr = [(-1)**(i % 3) * (x % 11) for i, x in enumerate(range(-22, 23))]
@@ -31,6 +28,28 @@ def get_medians(arr, k):
         meds.append(slider.getMed())
 
     return meds
+
+
+# Naive implementation.
+def medSlideArr(arr, k):
+    i, j = 0, k
+    kh = k // 2
+
+    res = []
+    while j <= len(arr):
+        widow = arr[i:j]
+        widow.sort()
+        if k % 2 == 0:
+            med = (widow[kh-1] + widow[kh]) / 2
+            res.append(med)
+        else:
+            med = widow[kh]
+            res.append(med)
+
+        i += 1
+        j += 1
+
+    return res
 
 
 class Slider:
@@ -94,26 +113,7 @@ class Slider:
         return i
 
 
-def medSlideArr(arr, k):
-    i, j = 0, k
-    kh = k // 2
-
-    res = []
-    while j <= len(arr):
-        widow = arr[i:j]
-        widow.sort()
-        if k % 2 == 0:
-            med = (widow[kh-1] + widow[kh]) / 2
-            res.append(med)
-        else:
-            med = widow[kh]
-            res.append(med)
-
-        i += 1
-        j += 1
-
-    return res
-
+# longest substring with unique characters
 def longest_unique(seq):
     cmap = {}
     istart = 0
@@ -132,6 +132,7 @@ def longest_unique(seq):
     return longest
 
 
+# Circular linked lists
 def circle_main():
     arr = [(-1)**(i % 3) * (x % 11) for i, x in enumerate(range(-22, 23))]
     print(arr)
@@ -163,6 +164,7 @@ def make_circle(node, index):
     return start.next
 
 
+# Searching sorted matrices
 def qsearch_main():
     arr = [(-1)**(i % 3) * (x % 11) for i, x in enumerate(range(-22, 23))]
     qsort_arr = qsort(arr)
@@ -191,6 +193,7 @@ def qsearch_main():
     print(x)
     x = qsearch(mat, tara)
     print(x)
+
 
 # Searching a very sorted 2D matrix
 def qsearch(mat, tar):
