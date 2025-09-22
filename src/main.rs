@@ -1,10 +1,17 @@
 use leet::add;
 use leet::list_lib::Node;
+use leet::msort;
 
 fn main() {
     println!("works?");
     println!("{}", add(11, 13));
 
+    let arr: Vec<i32> = vec![11, 5, 3, 7, 13, 9, 0];
+    let res = msort(Some(arr));
+    println!("{:?}", res.unwrap());
+}
+
+fn old_main() {
     let arra: Vec<char> = vec![
         1 as char, 
         3 as char, 
